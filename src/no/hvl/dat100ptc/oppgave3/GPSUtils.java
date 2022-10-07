@@ -35,7 +35,6 @@ public class GPSUtils {
 		}
 			
 		return min;
-
 	}
 
 	public static double[] getLatitudes(GPSPoint[] gpspoints) {

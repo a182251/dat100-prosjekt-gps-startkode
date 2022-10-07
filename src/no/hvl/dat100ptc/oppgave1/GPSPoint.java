@@ -1,10 +1,8 @@
 package no.hvl.dat100ptc.oppgave1;
 
-import no.hvl.dat100ptc.TODO;
-
 public class GPSPoint {
 
-	// TODO - objektvariable
+	// Objektvariabler
 	
 	private int time;
 	private double latitude;
@@ -19,7 +17,7 @@ public class GPSPoint {
 		this.elevation = elevation;
 	}
 
-	// TODO - get/set metoder
+	// Get/set metoder
 	public int getTime() {
 		return time;		
 	}
@@ -54,13 +52,10 @@ public class GPSPoint {
 	
 	public String toString() {
 		
-		String str;
+		String str = "";
 		
-		// TODO - start
-
-		throw new UnsupportedOperationException(TODO.method());
-
-		// TODO - slutt
+		str += time + " (" + latitude + "," + longitude + ") " + elevation + "\n";
 		
+		return str;
 	}
 }
