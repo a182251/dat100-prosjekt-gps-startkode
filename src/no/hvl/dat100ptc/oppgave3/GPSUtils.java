@@ -25,14 +25,16 @@ public class GPSUtils {
 	public static double findMin(double[] da) {
 
 		double min;
-
-		// TODO - START
 		
-		// se på maksimum over for tips
+		min = da[0];
 		
-		throw new UnsupportedOperationException(TODO.method());
-
-		// TODO - SLUT
+		for (double d : da) {
+			if (d < min) {
+				min = d;
+			}
+		}
+			
+		return min;
 
 	}
 

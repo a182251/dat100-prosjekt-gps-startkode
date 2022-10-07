@@ -13,16 +13,10 @@ public class GPSPoint {
 		
 	public GPSPoint(int time, double latitude, double longitude, double elevation) {
 
-		// TODO - konstruktør
-		
 		this.time = time;
 		this.latitude = latitude;
 		this.longitude = longitude;
 		this.elevation = elevation;
-		
-		// Fjern linjene med throw new etterhvert som metodene implementeres
-		// throw new UnsupportedOperationException(TODO.construtor("GPSPoint"));
-
 	}
 
 	// TODO - get/set metoder
