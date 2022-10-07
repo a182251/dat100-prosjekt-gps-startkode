@@ -27,7 +27,9 @@ public class GPSUtils {
 		double min;
 
 		// TODO - START
-
+		
+		// se på maksimum over for tips
+		
 		throw new UnsupportedOperationException(TODO.method());
 
 		// TODO - SLUT
@@ -36,21 +38,26 @@ public class GPSUtils {
 
 	public static double[] getLatitudes(GPSPoint[] gpspoints) {
 
-		// TODO - START
+		double [] latitudes = new double [gpspoints.length];
 		
-		throw new UnsupportedOperationException(TODO.method());
+		for (int i = 0; i < gpspoints.length; i++) {
+			
+			latitudes [i] = gpspoints[i].getLatitude();
+		}
 		
-		// TODO - SLUTT
+		return latitudes;
 	}
 
 	public static double[] getLongitudes(GPSPoint[] gpspoints) {
 
-		// TODO - START
-
-		throw new UnsupportedOperationException(TODO.method());
+		double [] longitudes = new double [gpspoints.length];
 		
-		// TODO - SLUTT
-
+		for (int i = 0; i < gpspoints.length; i++) {
+			
+			longitudes [i] = gpspoints[i].getLongitude();
+		}
+		
+		return longitudes;
 	}
 
 	private static int R = 6371000; // jordens radius

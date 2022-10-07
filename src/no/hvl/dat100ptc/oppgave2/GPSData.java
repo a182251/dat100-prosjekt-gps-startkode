@@ -12,6 +12,11 @@ public class GPSData {
 
 		// TODO - START
 		
+		gpspoints = new GPSPoint[n];
+		antall = 0;
+		
+		
+		
 		throw new UnsupportedOperationException(TODO.construtor("GPSData"));
 
 		// TODO - SLUTT
@@ -27,6 +32,8 @@ public class GPSData {
 
 		// TODO - START
 		
+		// metoden skal legge et nytt objekt i neste indeks - husk å oppdatere indeks med ++
+		
 		throw new UnsupportedOperationException(TODO.method());
 
 		// TODO - SLUTT
@@ -37,6 +44,8 @@ public class GPSData {
 		GPSPoint gpspoint;
 
 		// TODO - START
+		
+		//lag et objekt her
 		
 		throw new UnsupportedOperationException(TODO.method());
 
@@ -49,7 +58,9 @@ public class GPSData {
 		System.out.println("====== Konvertert GPS Data - START ======");
 
 		// TODO - START
-
+		
+		// bruk en for-løkke for å gå gjennom alle objekter som skal skrives ut
+		
 		throw new UnsupportedOperationException(TODO.method());
 
 		// TODO - SLUTT

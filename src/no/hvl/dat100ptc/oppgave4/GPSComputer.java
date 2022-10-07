@@ -15,7 +15,6 @@ public class GPSComputer {
 
 		GPSData gpsdata = GPSDataFileReader.readGPSFile(filename);
 		gpspoints = gpsdata.getGPSPoints();
-
 	}
 
 	public GPSComputer(GPSPoint[] gpspoints) {
