@@ -2,7 +2,7 @@ package no.hvl.dat100ptc.oppgave1;
 
 public class GPSPoint {
 
-	// Testggg
+	// Objektvariabler
 	
 	private int time;
 	private double latitude;
