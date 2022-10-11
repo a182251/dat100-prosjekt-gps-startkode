@@ -131,6 +131,8 @@ public class GPSUtils {
 //				TIMESEP + SPACE + Integer.toString (ss);
 				
 		return timestr;
+		
+		// hei
 	}
 	
 	private static int TEXTWIDTH = 10;
