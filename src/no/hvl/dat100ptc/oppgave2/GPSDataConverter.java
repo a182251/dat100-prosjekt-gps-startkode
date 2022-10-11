@@ -5,6 +5,8 @@ import no.hvl.dat100ptc.oppgave1.GPSPoint;
 import static java.lang.Integer.*;
 import static java.lang.Double.*;
 
+// Ferdig
+
 public class GPSDataConverter {
 
 	// konverter tidsinformasjon i gps data punkt til antall sekunder fra midnatt

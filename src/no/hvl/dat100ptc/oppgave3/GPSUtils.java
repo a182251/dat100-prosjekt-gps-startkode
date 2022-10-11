@@ -5,6 +5,8 @@ import static java.lang.Math.*;
 import no.hvl.dat100ptc.TODO;
 import no.hvl.dat100ptc.oppgave1.GPSPoint;
 
+// Ferdig
+
 public class GPSUtils {
 
 	public static double findMax(double[] da) {

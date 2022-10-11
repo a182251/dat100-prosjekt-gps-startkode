@@ -1,5 +1,7 @@
 package no.hvl.dat100ptc.oppgave1;
 
+// Ferdig
+
 public class GPSPoint {
 
 	// Objektvariabler
