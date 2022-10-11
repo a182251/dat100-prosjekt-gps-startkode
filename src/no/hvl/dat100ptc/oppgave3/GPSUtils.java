@@ -32,8 +32,8 @@ public class GPSUtils {
 			if (d < min) {
 				min = d;
 			}
-		}
-			
+		}	
+		
 		return min;
 	}
 
@@ -67,13 +67,29 @@ public class GPSUtils {
 
 		double d;
 		double latitude1, longitude1, latitude2, longitude2;
+		
+		latitude1 = gpspoint1.getLatitude ();
+		latitude2 = gpspoint2.getLatitude ();
+		longitude1 = gpspoint1.getLongitude ();
+		longitude2 = gpspoint2.getLongitude ();
+	
+		double gLat1, gLat2, gLon1, gLon2, deltaG, deltaL, a, c;
 
-		// TODO - START
-
-		throw new UnsupportedOperationException(TODO.method());
-
-		// TODO - SLUTT
-
+		gLat1 = toRadians (latitude1);
+		gLat2 = toRadians (latitude2);
+		gLon1 = toRadians (longitude1);
+		gLon2 = toRadians (longitude2);
+		
+		deltaG = gLat2 - gLat1;
+		deltaL = gLon2 - gLon1;
+		
+		a = pow (sin (deltaG / 2), 2) + cos (gLat1) * cos (gLat2) * pow (sin (deltaL / 2), 2);
+		
+		c = 2 * atan2 (sqrt (a), sqrt (1-a));
+		
+		d = R * c;
+		
+		return d;
 	}
 
 	public static double speed(GPSPoint gpspoint1, GPSPoint gpspoint2) {
