@@ -3,6 +3,7 @@ package no.hvl.dat100ptc.oppgave2;
 import no.hvl.dat100ptc.TODO;
 import no.hvl.dat100ptc.oppgave1.GPSPoint;
 import static java.lang.Integer.*;
+import static java.lang.Double.*;
 
 public class GPSDataConverter {
 
@@ -34,13 +35,22 @@ public class GPSDataConverter {
 	public static GPSPoint convert(String timeStr, String latitudeStr, String longitudeStr, String elevationStr) {
 
 		GPSPoint gpspoint;
-
-		// TODO - START ;
 		
-		throw new UnsupportedOperationException(TODO.method());
-
-		// OPPGAVE - SLUTT ;
+		int time;
+		int hr, min, sec;
+		
+		hr = parseInt (timeStr.substring (11, 13)); 
+		min = parseInt (timeStr.substring (14, 16));
+		sec = parseInt (timeStr.substring (17, 19));
+		time = (hr * 60 * 60) + (min * 60) + sec;
+		
+		double latitude = parseDouble (latitudeStr.substring (0, 9));
+		double longitude = parseDouble (longitudeStr.substring (0, 7));
+		double elevation = parseDouble (elevationStr.substring (0, 4)); 
 	    
+		gpspoint = new GPSPoint (time, latitude, longitude, elevation);
+		
+		return gpspoint;
 	}
 	
 }
