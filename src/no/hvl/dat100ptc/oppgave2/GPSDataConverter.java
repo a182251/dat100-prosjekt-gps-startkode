@@ -26,10 +26,6 @@ public class GPSDataConverter {
 		secs = (hr * 60 * 60) + (min * 60) + sec;
 		
 		return secs;
-		
-//	 	substring(int beginIndex, int endIndex)
-//	 	Returns a new string that is a substring of this string.
-//		
 	}
 
 	public static GPSPoint convert(String timeStr, String latitudeStr, String longitudeStr, String elevationStr) {
