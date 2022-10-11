@@ -95,13 +95,19 @@ public class GPSUtils {
 	public static double speed(GPSPoint gpspoint1, GPSPoint gpspoint2) {
 
 		int secs;
-		double speed;
+		double speed, point1, point2, distance, time;
+		
+		distance = distance (gpspoint1, gpspoint2);
 
-		// TODO - START
-
-		throw new UnsupportedOperationException(TODO.method());
-
-		// TODO - SLUTT
+		point1 = gpspoint1.getTime ();
+		point2 = gpspoint2.getTime ();
+		time = point2 - point1;
+		
+		// må finne ut om jeg skal regne om tid og distanse 
+		
+		speed = distance / time;
+		
+		return speed;
 
 	}
 
@@ -109,14 +115,24 @@ public class GPSUtils {
 
 		String timestr;
 		String TIMESEP = ":";
+		String SPACE = " ";
 
-		// TODO - START
-
-		throw new UnsupportedOperationException(TODO.method());
+		int hh, mm, ss;
 		
-		// TODO - SLUTT
-
+		hh = secs % 60;
+		mm = (secs / 60) % 60;
+		ss = (secs / 60) / 60;
+		
+		timestr = String.format (hh, mm, ss, 
+								SPACE + TIMESEP + hh + SPACE + TIMESEP + mm + SPACE + TIMESEP + ss,
+								0);
+		
+//		timestr = SPACE + Integer.toString (hh) + TIMESEP + SPACE + Integer.toString (mm) + 
+//				TIMESEP + SPACE + Integer.toString (ss);
+				
+		return timestr;
 	}
+	
 	private static int TEXTWIDTH = 10;
 
 	public static String formatDouble(double d) {
