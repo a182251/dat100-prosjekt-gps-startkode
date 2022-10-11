@@ -40,13 +40,12 @@ public class GPSDataConverter {
 		sec = parseInt (timeStr.substring (17, 19));
 		time = (hr * 60 * 60) + (min * 60) + sec;
 		
-		double latitude = parseDouble (latitudeStr.substring (0, 9));
-		double longitude = parseDouble (longitudeStr.substring (0, 7));
-		double elevation = parseDouble (elevationStr.substring (0, 4)); 
+		double latitude = parseDouble (latitudeStr);
+		double longitude = parseDouble (longitudeStr);
+		double elevation = parseDouble (elevationStr); 
 	    
 		gpspoint = new GPSPoint (time, latitude, longitude, elevation);
 		
 		return gpspoint;
 	}
-	
 }
