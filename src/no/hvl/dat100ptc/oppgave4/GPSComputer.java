@@ -12,6 +12,7 @@ public class GPSComputer {
 	private GPSPoint[] gpspoints;
 	
 	public GPSComputer(String filename) {
+		
 
 		GPSData gpsdata = GPSDataFileReader.readGPSFile(filename);
 		gpspoints = gpsdata.getGPSPoints();
@@ -25,128 +26,170 @@ public class GPSComputer {
 		return this.gpspoints;
 	}
 	
-	// beregn total distances (i meter)
+	//Oppgave 4: GPS-basert statistikk
+	
+	//a) Total distanse på ruten
 	public double totalDistance() {
+		
 
 		double distance = 0;
-
-		// TODO - START
-
-		throw new UnsupportedOperationException(TODO.method());
-
-		// TODO - SLUTT
-
+		
+		for(int i=0;i<this.gpspoints.length-1;i++) {
+			
+		distance+=GPSUtils.distance(gpspoints[i+1],gpspoints[i]);
+			
+		}return distance;
 	}
+	
 
-	// beregn totale høydemeter (i meter)
+	//b) Totalt antall høydemeter
 	public double totalElevation() {
 
 		double elevation = 0;
-
-		// TODO - START
-
-		throw new UnsupportedOperationException(TODO.method());
-
-		// TODO - SLUTT
-
-	}
-
-	// beregn total tiden for hele turen (i sekunder)
-	public int totalTime() {
-
-		throw new UnsupportedOperationException(TODO.method());
-
-	}
 		
-	// beregn gjennomsnitshastighets mellom hver av gps punktene
-
-	public double[] speeds() {
-		
-		// TODO - START		// OPPGAVE - START
-		
-		throw new UnsupportedOperationException(TODO.method());
-
-		// TODO - SLUTT
+		for(int i=0;i<this.gpspoints.length-1;i++) {
+			
+			if(gpspoints[i+1].getElevation()>gpspoints[i].getElevation()) {
+					
+				
+				elevation+=gpspoints[i+1].getElevation()-gpspoints[i].getElevation();
+			}
+			
+			}return elevation;
 
 	}
 	
+    //c) Total tid det har tatt å sykle ruten
+ 	public int totalTime() {
+
+		
+      int time = 0;
+		
+		for(int i=0;i<this.gpspoints.length-1;i++) {
+			
+			time+=gpspoints[i+1].getTime()-gpspoints[i].getTime();
+			
+		}return time;
+	}
+		
+ 	
+	//d) Gjennomsnittsfart mellom hvert av gpspunktene
+	public double[] speeds() {
+		
+		
+		double [] hastighet = new double [gpspoints.length-1];
+				int i=0;
+				int j=0;
+		for(i=0;i<this.gpspoints.length-1;i++,j++) {
+			
+			hastighet[j]=(GPSUtils.speed(gpspoints[i],gpspoints[i+1]));	
+		}
+		
+         return hastighet;
+	}
+	
+	
+	//e) Max speed mellom to punkter
 	public double maxSpeed() {
 		
-		double maxspeed = 0;
 		
-		// TODO - START
-		
-		throw new UnsupportedOperationException(TODO.method());
-		
-		// TODO - SLUTT
-		
+		 double maxspeed = 0;
+	      
+		 //Bruker metoden findMax på metoden speed, og finner dermed maks av gjennomsn.hast mellom pnktene
+	       maxspeed=GPSUtils.findMax(speeds());
+	      
+	       return maxspeed;
 	}
+	
 
+	//f) Gjennomsnittshastighet for hele ruten
 	public double averageSpeed() {
 
 		double average = 0;
-		
-		// TODO - START
-		
-		throw new UnsupportedOperationException(TODO.method());
-		
-		// TODO - SLUTT
+				 
+		 average=(totalDistance()/totalTime())*3.6;
+		 	 
+		return average;
 		
 	}
 
-	/*
-	 * bicycling, <10 mph, leisure, to work or for pleasure 4.0 bicycling,
-	 * general 8.0 bicycling, 10-11.9 mph, leisure, slow, light effort 6.0
-	 * bicycling, 12-13.9 mph, leisure, moderate effort 8.0 bicycling, 14-15.9
-	 * mph, racing or leisure, fast, vigorous effort 10.0 bicycling, 16-19 mph,
-	 * racing/not drafting or >19 mph drafting, very fast, racing general 12.0
-	 * bicycling, >20 mph, racing, not drafting 16.0
-	 */
 
 	// conversion factor m/s to miles per hour
 	public static double MS = 2.236936;
 
-	// beregn kcal gitt weight og tid der kjøres med en gitt hastighet
+	
+	// g) Bergner hvor mye energi som er forbrent gitt vekt,tid og hastighet
 	public double kcal(double weight, int secs, double speed) {
 
-		double kcal;
+		double kcal=0;
 
 		// MET: Metabolic equivalent of task angir (kcal x kg-1 x h-1)
+		//regnet om dette til å bli kcal=(MET*sec*kg)/3600) h=secs/3600sekunder.
 		double met = 0;		
 		double speedmph = speed * MS;
-
-		// TODO - START
 		
-		throw new UnsupportedOperationException(TODO.method());
-
-		// TODO - SLUTT
+		if(speedmph<10) {
+			
+			kcal=(4*secs*weight)/3600;
+		}
 		
+       if(10<=speedmph && speedmph<12) {
+			
+    	   kcal=(6*secs*weight)/3600;
+		}
+       
+       if(12<=speedmph && speedmph<14) {
+			
+    	   kcal=(8*secs*weight)/3600;
+		}
+       
+       if(14<=speedmph && speedmph<16) {
+				
+    	   kcal=(10*secs*weight)/3600;
+		}
+       
+       if(16<=speedmph && speedmph<20) {
+			 
+    	   kcal=(12*secs*weight)/3600;
+		}
+       
+       if(speedmph>=20) {
+			
+    	 kcal=(16*secs*weight)/3600;
+       
+       }
+	return kcal;
 	}
-
+	
+	
+    //h) Beregner den totale energi som er forbrent på hele ruten
 	public double totalKcal(double weight) {
 
 		double totalkcal = 0;
-
-		// TODO - START
 		
-		throw new UnsupportedOperationException(TODO.method());
-
-		// TODO - SLUTT
+		totalkcal=kcal(weight, totalTime(), averageSpeed());
+		
+		return totalkcal;
 		
 	}
 	
+	
 	private static double WEIGHT = 80.0;
 	
+	//i) Skriver ut statistikk  for ruten
 	public void displayStatistics() {
 
+		//String.format ("      %.2f", d);
 		System.out.println("==============================================");
 
-		// TODO - START
-
-		throw new UnsupportedOperationException(TODO.method());
+		System.out.println("Total time \t:  "+GPSUtils.formatTime(totalTime()));
+		System.out.println("Total distance \t:\t"+String.format ("%.2f",totalDistance()));
+		System.out.println("Total elevation :\t"+String.format ("%.2f",totalElevation()));
+		System.out.println("Max speed \t:\t"+String.format ("%.2f",maxSpeed()));
+		System.out.println("Average speed \t:\t"+String.format ("%.2f",averageSpeed()));
+		System.out.println("Energi \t\t:\t"+String.format ("%.2f",totalKcal(GPSComputer.WEIGHT)));
 		
-		// TODO - SLUTT
-		
+		System.out.println("==============================================");
 	}
 
 }
