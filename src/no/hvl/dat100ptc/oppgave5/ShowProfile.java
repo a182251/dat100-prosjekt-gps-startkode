@@ -29,38 +29,34 @@ public class ShowProfile extends EasyGraphics {
 	}
 
 	public static void main(String[] args) {
-		launch(args);
+		launch (args);
 	}
 
 	public void run() {
 
 		int N = gpspoints.length; // number of data points
 
-		makeWindow("Height profile", 2 * MARGIN + 2 * N, 2 * MARGIN + MAXBARHEIGHT);
+		makeWindow ("Height profile", 2 * MARGIN + 2 * N, 2 * MARGIN + MAXBARHEIGHT);
 		
-
 		// top margin + height of drawing area
-		showHeightProfile(MARGIN + MAXBARHEIGHT); 
+		showHeightProfile (MARGIN + MAXBARHEIGHT); 
 	}
 
-	
 	//Oppgave 5 a) Viser høydekurven for ruten
 	
 	public void showHeightProfile(int ybase) {
 
-		
 		// ybase indicates the position on the y-axis where the columns should start
 		
-		int x = MARGIN,y;
+		int x = MARGIN;
 		
-		for(int i=0;i<this.gpspoints.length-1;i++) {
-			
-			double endY=gpspoints[i].getElevation();
-			
-			int høyde = (int)endY;
-			setColor(200, 0, 255);
-			drawLine(x+i*2,ybase,x+i*2,ybase-høyde);
-			
-		}}	
-	
-		}
+			for (int i = 0; i < this.gpspoints.length - 1; i++) {
+				
+				double endY = gpspoints[i].getElevation ();
+				
+				int høyde = (int) endY;
+				setColor (200, 0, 255);
+				drawLine (x + i * 2, ybase, x + i * 2, ybase - høyde);
+			}
+		}	
+	}
