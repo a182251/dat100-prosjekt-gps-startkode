@@ -17,7 +17,7 @@ public class ShowRoute extends EasyGraphics {
 	private GPSPoint[] gpspoints;
 	private GPSComputer gpscomputer;
 	
-	public ShowRoute() {
+	public ShowRoute () {
 
 		String filename = JOptionPane.showInputDialog("GPS data filnavn: ");
 		gpscomputer = new GPSComputer(filename);
@@ -27,20 +27,20 @@ public class ShowRoute extends EasyGraphics {
 	}
 
 	public static void main(String[] args) {
-		launch(args);
+		launch (args);
 	}
 
 	public void run() {
 
-		makeWindow("Route", MAPXSIZE + 2 * MARGIN, MAPYSIZE + 2 * MARGIN);
+		makeWindow ("Route", MAPXSIZE + 2 * MARGIN, MAPYSIZE + 2 * MARGIN);
 
-		showRouteMap(MARGIN + MAPYSIZE);
+		showRouteMap (MARGIN + MAPYSIZE);
 		
-		showStatistics();
+		showStatistics ();
 	}
 
 	// antall x-pixels per lengdegrad
-	public double xstep() {
+	public double xstep () {
 
 		double maxlon = GPSUtils.findMax (GPSUtils.getLongitudes (gpspoints));
 		double minlon = GPSUtils.findMin (GPSUtils.getLongitudes (gpspoints));
@@ -51,7 +51,7 @@ public class ShowRoute extends EasyGraphics {
 	}
 
 	// antall y-pixels per breddegrad
-	public double ystep() {
+	public double ystep () {
 	
 		double maxlat = GPSUtils.findMax (GPSUtils.getLatitudes (gpspoints));
 		double minlat = GPSUtils.findMin (GPSUtils.getLatitudes (gpspoints));
@@ -61,17 +61,21 @@ public class ShowRoute extends EasyGraphics {
 		return ystep;
 	}
 
-	public void showRouteMap(int ybase) {
+	public void showRouteMap (int ybase) {
 
-		// holdt på her..
+		for (int i = 0; i < gpspoints.length; i++) {
+			
+			//gpspoints [i]
+			
+		}
 	}
 
 	public void showStatistics() {
 
 		int TEXTDISTANCE = 20;
 
-		setColor(0,0,0);
-		setFont("Courier",12);
+		setColor (0, 0, 0);
+		setFont ("Courier", 12);
 		
 		// TODO - START
 		
