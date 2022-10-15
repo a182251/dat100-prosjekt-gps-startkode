@@ -35,7 +35,6 @@ public class GPSComputer {
 		for (int i = 0; i < this.gpspoints.length - 1; i++) {
 			
 			distance += GPSUtils.distance (gpspoints [i+1], gpspoints [i]);
-			
 		} 
 		
 		return distance;
@@ -163,7 +162,6 @@ public class GPSComputer {
 		totalkcal = kcal (weight, totalTime(), averageSpeed ());
 		
 		return totalkcal;
-		
 	}
 	
 	private static double WEIGHT = 80.0;
