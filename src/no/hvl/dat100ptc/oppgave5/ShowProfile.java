@@ -50,7 +50,7 @@ public class ShowProfile extends EasyGraphics {
 		
 		int x = MARGIN;
 		
-			for (int i = 0; i < this.gpspoints.length; i++) {
+			for (int i = 0; i < gpspoints.length; i++) {
 				
 				double endY = gpspoints[i].getElevation ();
 				
