@@ -32,7 +32,7 @@ public class GPSComputer {
 		
 		double distance = 0;
 		
-		for (int i = 0; i < this.gpspoints.length - 1; i++) {
+		for (int i = 0; i < gpspoints.length-1 ; i++) {
 			
 			distance += GPSUtils.distance (gpspoints [i+1], gpspoints [i]);
 		} 
@@ -45,7 +45,7 @@ public class GPSComputer {
 
 		double elevation = 0;
 		
-		for (int i = 0; i < this.gpspoints.length-1; i++) {
+		for (int i = 0; i < gpspoints.length-1; i++) {
 			
 			if (gpspoints[i+1].getElevation () > gpspoints[i].getElevation ()) {
 						
@@ -61,7 +61,7 @@ public class GPSComputer {
 		
       int time = 0;
 		
-		for (int i = 0; i < this.gpspoints.length-1; i++) {
+		for (int i = 0; i < gpspoints.length-1; i++) {
 			
 			time += gpspoints[i+1].getTime () - gpspoints[i].getTime ();
 			
@@ -77,7 +77,7 @@ public class GPSComputer {
 		int i = 0;
 		int j = 0;
 		
-		for (i = 0; i < this.gpspoints.length - 1; i++, j++) {
+		for (i = 0; i < gpspoints.length - 1; i++, j++) {
 			
 			hastighet[j] = (GPSUtils.speed (gpspoints[i], gpspoints[i+1]) );	
 		}
