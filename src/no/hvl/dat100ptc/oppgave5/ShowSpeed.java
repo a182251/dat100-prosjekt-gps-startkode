@@ -63,7 +63,7 @@ public class ShowSpeed extends EasyGraphics {
 			drawLine (x + i * 2, ybase, x + i * 2, ybase - fart);
 		}    
 		
-		for (int j = 0; j < this.gpspoints.length - 1; j++, k++) {
+		for (int j = 0; j < gpspoints.length-1 ; j++, k++) {
 			
 			distanse += GPSUtils.distance (gpspoints[j], gpspoints[j + 1]);
 			
